@@ -1,0 +1,20 @@
+fillText（）
+(x,y)左下角
+
+clearRect()
+和fillRect()类似，不同的是，它会忽略当前填充样式。采用透明的黑色像素
+
+把字转换为矩形原因：
+a. getImageData()函数获得到的是一个矩形内的data
+
+
+Treemap
+给每个graph分配大小
+
+typeof返回一个表达式的数据类型的字符串，返回结果为js基本的数据类型，包括number,boolean,string,object,undefined,function.语法为typeof(data) 或 typeof data。使用typeof的一个不好的地方就是它会把Array还有用户自定义函数都返回为object
+
+instanceof则为判断一个对象是否为某一数据类型，或一个变量是否为一个对象的实例;返回boolean类型
+语法为 o instanceof A
+
+hasOwnProperty：是用来判断一个对象是否有你给出名称的属性或对象。不过需要注意的是，此方法无法检查该对象的原型链中是否具有该属性，该属性必须是对象本身的一个成员。
+isPrototypeOf:是用来判断要检查其原型链的对象是否存在于指定对象实例中，是则返回true，否则返回false。

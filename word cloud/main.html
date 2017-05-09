@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <title>Word Cloud</title>
+        <script src="include.js"></script>
+        <script src="WordCloud.js"></script>
+  </head>
+  <body>
+      <canvas id="background" width="800" height="800"></canvas>
+      <canvas id="tmp" width="800" height="800"></canvas>
+      <script>
+        var canvas = Canvas.createNew(document.getElementById("background"), 800, 800);
+        var canvasTmp =  Canvas.createNew(document.getElementById("tmp"), 800, 800);
+
+        var words = [
+            { text : "hello", frequency : 150 },
+            { text : "layout", frequency : 100 },
+            { text : "pixel", frequency : 90 },
+            { text : "data", frequency : 80 },
+            { text : "algorithm", frequency : 60 },
+            { text : "area", frequency : 60 },
+            { text : "hierarchical", frequency : 50 },
+            { text : "canvas", frequency : 40 },
+            { text : "initial", frequency : 25 },
+            { text : "move", frequency : 25 },
+            { text : "position", frequency : 20 },
+            { text : "update", frequency : 20 },
+            { text : "anmiate", frequency : 10 },
+            { text : "always", frequency : 10 },
+            { text : "art", frequency : 8 }
+        ];
+        WordCloud(words, canvas, canvasTmp);
+
+      </script>
+  </body>
+</html>
