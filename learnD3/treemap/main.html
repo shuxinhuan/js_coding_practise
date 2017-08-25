@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+  <meta charset = "utf-8">
+  <title>Treemap</title>
+  <script src = "../d3.v4.js"></script>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    var WIDTH = 960;
+    var HEIGHT = 570;
+    var svg = d3.select("body").append("svg")
+                .attr("width",  WIDTH)
+                .attr("height", HEIGHT);
+
+    var color = d3.scaleOrdinal(d3.schemeCategory20);
+    //set treemap structure
+    var treemap = d3.treemap()
+                    .size([WIDTH, HEIGHT])
+                    .round(true)
+                    .paddingInner(1)
+                    .tile(d3.treemapResquarify);
+
+    d3.json("data.json", function(err,data) {
+      if(err) throw err;
+      // console.log(data);
+
+      //generate root structure
+      var root = d3.hierarchy(data)
+                  .eachBefore(function(d){
+                    d.data.id = (d.parent ? d.parent.data.id + "." : "") + d.data.name;
+                  })   //set id for each node
+                  .sum(function(d){
+                    return d.size;
+                  })  //compute value for each node according to subtrees
+                  .sort(function(a, b){
+                    return b.height - a.height || b.value - a.value;
+                  });
+
+      //generate the treemap layout with x0,x1,y0,y1 in root
+      treemap(root);
+      console.log(root);
+
+      //draw
+      var cell = svg.selectAll("g")
+                    .data(root.leaves())
+                    .enter().append("g")
+                    .attr("transform", function(d){
+                      return "translate(" + d.x0 + "," + d.y0 + ")";
+                    });
+
+      cell.append("rect")
+          .attr("id", function(d){ return d.data.id; })
+          .attr("width", function(d){ return d.x1 - d.x0; })
+          .attr("height", function(d){ return d.y1 - d.y0; })
+          .attr("fill", function(d){ return color(d.parent.data.id); });
+
+      cell.append("text")
+          .attr("x", 4)
+          .attr("y", 10)
+          .attr("font-size", 10)
+          .text(function(d){
+            return d.data.name;
+          });
+
+      cell.append("title")
+        .text(function(d){
+          return d.data.id + "\n" + d.value;
+        });
+
+    });
+
+
+  </script>
+</body>
