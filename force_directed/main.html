@@ -357,6 +357,22 @@
     {"source": "Mme.Hucheloup", "target": "Enjolras", "value": 1}
   ];
     initialSVG("force", "svg");
-    generateGraph(nodes, links, "svg");
+
+    var iter = 0;
+    var stopCount = 0;
+    var prevTime = +new Date();
+    initialGraph(nodes, links, "svg");
+
+    function update(){
+      iter += 1;
+      var thisTime = +new Date();
+      var timeInterval = (thisTime - prevTime)/1000;
+      prevTime = thisTime;
+      stopCount = reArrange(stopCount, timeInterval, links, "svg");
+      if(iter < MAX_ITERATION && stopCount < 15){
+        window.requestAnimationFrame(update);
+      }
+    }
+    window.requestAnimationFrame(update);
   </script>
 </body>

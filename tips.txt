@@ -18,3 +18,14 @@ instanceofÔòÎªÅÐ¶ÏÒ»¸ö¶ÔÏóÊÇ·ñÎªÄ³Ò»Êý¾ÝÀàÐÍ£¬»òÒ»¸ö±äÁ¿ÊÇ·ñÎªÒ»¸ö¶ÔÏóµÄÊµÀý;·µ»
 
 hasOwnProperty£ºÊÇÓÃÀ´ÅÐ¶ÏÒ»¸ö¶ÔÏóÊÇ·ñÓÐÄã¸ø³öÃû³ÆµÄÊôÐÔ»ò¶ÔÏó¡£²»¹ýÐèÒª×¢ÒâµÄÊÇ£¬´Ë·½·¨ÎÞ·¨¼ì²é¸Ã¶ÔÏóµÄÔ­ÐÍÁ´ÖÐÊÇ·ñ¾ßÓÐ¸ÃÊôÐÔ£¬¸ÃÊôÐÔ±ØÐëÊÇ¶ÔÏó±¾ÉíµÄÒ»¸ö³ÉÔ±¡£
 isPrototypeOf:ÊÇÓÃÀ´ÅÐ¶ÏÒª¼ì²éÆäÔ­ÐÍÁ´µÄ¶ÔÏóÊÇ·ñ´æÔÚÓÚÖ¸¶¨¶ÔÏóÊµÀýÖÐ£¬ÊÇÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse¡£
+
+
+indexof£¨find, start£©
+find ÒªÕÒµÄÄÚÈÝ£¬±ØÐë£»  start  ²éÕÒ¿ªÊ¼ÏÂ±ê£¬¿ÉÑ¡£»
+·µ»Ø£º²éÕÒÊý¾ÝËùÔÚµÄÏÂ±í£¬Èç¹ûÃ»ÓÐÔò·µ»Ø-1
+¿ÉÓÃÓÚ ×Ö·û´®¡¢Êý×é£»
+
+
+var t = new Date();  //Tue Jul 11 2017 20:35:56 GMT+0800
+var x = +new Date(); //1499776556545
+Ò²¾ÍÊÇËµ xÏàµ±ÓÚt.getTime()·µ»Ø¾à 1970 Äê 1 ÔÂ 1 ÈÕÖ®¼äµÄºÁÃëÊý¡£
