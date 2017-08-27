@@ -1,8 +1,0 @@
-力导向图
-alphaTarget以及alpha的含义是什么？
-猜想alpha值与平衡状态相关，因为alpha<0.001时，认为平衡，停止计算。但是在拖动一个点时，将simulation.alphaTarget(0.3).restart();这个时候alpha也不是从0.3开始或者结束的。
-经过试验，大致能理解是指在拖曳过程中alpha值不能大于0.3。整个拖曳过程，其他节点位置有所变化，为了保证alpha值不能大于0.3。所以当拖曳结束要将alphaTarget设回0，即最终还是alpha<0.001时平衡。
-
-
-
-
